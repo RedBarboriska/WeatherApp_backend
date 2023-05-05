@@ -6,34 +6,6 @@ const connectDB=async()=> {
     await mongoose.connect('mongodb+srv://admin:admin2023@cluster0.hct0oer.mongodb.net/myFirstDatabase?');
 }
 
-async function createNewUser(login, password, name) {
-    const user = await Users.create({
-        login: login,
-        password: password,
-        name: name
-    })
-    console.log(user)
-}
-
-
-
-
-async function createNewDashboard(arrayOfCities, userID) {
-    const dashboard = await Dashboards.create({
-        cities: listOfCities,
-        userID: userID
-    })
-    console.log(dashboard)
-}
-
-let citiesArray = [{latitude: "56", longitude: "-12.76"}, {latitude: "-3.3456", longitude: "40"}]
-let userID = "64522f2dd7a20587e36c9336"
-//dashboardUpdate(userID, citiesArray)
-
-async function dashboardUpdate(userID, citiesArray) {
-    await Dashboards.findOneAndUpdate({userID: userID}, {cities: citiesArray})
-    console.log(await Dashboards.findOne({userID: userID}))
-}
 
 
 module.exports={connectDB}

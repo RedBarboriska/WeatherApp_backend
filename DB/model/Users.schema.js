@@ -4,8 +4,7 @@ const usersSchema = new mongoose.Schema({
     login: {
         type: String,
         required: true,
-        unique: true,
-        dropDups: true
+        unique: true
     },
     password: {
         type: String,
