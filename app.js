@@ -19,8 +19,6 @@ app.get('/api', (req, res) => {
         })
     });
 app.post('/login', (req, res) => {
-   // console.log(req)
-    //const { login, password } = req.body;
     functionsDB.login(req.body.login, req.body.password).then(data=>{
         res.json(data)
          console.log(data)
@@ -28,7 +26,6 @@ app.post('/login', (req, res) => {
         .catch(err => {
             res.json(err)
         });
-    //res.json( result );
 });
 
 

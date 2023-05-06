@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="hourly forecast with color">
-      <change afterPath="$PROJECT_DIR$/DB/functionsDB.js" afterDir="false" />
+    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="Спілкуються!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/ConnectDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/ConnectDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/model/Users.schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/model/Users.schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +103,7 @@
       <updated>1682971858517</updated>
       <workItem from="1682971860183" duration="2018000" />
       <workItem from="1683026978322" duration="1342000" />
-      <workItem from="1683102871114" duration="32993000" />
+      <workItem from="1683102871114" duration="35394000" />
     </task>
     <task id="LOCAL-00001" summary="hourly forecast with color">
       <created>1683226352735</created>
@@ -116,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683226352735</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Спілкуються!">
+      <created>1683306381049</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683306381049</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +139,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="hourly forecast with color" />
-    <option name="LAST_COMMIT_MESSAGE" value="hourly forecast with color" />
+    <MESSAGE value="Спілкуються!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Спілкуються!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
