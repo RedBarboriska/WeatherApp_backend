@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 const dashboardsSchema = new mongoose.Schema({
     cities: [{
+        cityName: String,
         latitude: String,
-        longitude: String
+        longitude: String,
+       // pinned: Boolean
     }],
     userID: mongoose.SchemaTypes.ObjectId
 });

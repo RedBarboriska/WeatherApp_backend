@@ -83,6 +83,65 @@ router.get('/me', passport.authenticate('jwt', {session: false}), async function
     res.status(200).json(dbUser);
 });
 
+router.post('/addcity', async (req, res) => {
+    let errors = {};
+    const dbUser = await Users.findOne({login: req.body.login});
+    const dbDashboard = await Dashboards.findOne({userID: dbUser._id})//id usera
+    const newCity = {
+        cityName:  req.body.cityName,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+    };
+    Dashboards.updateOne(
+        { _id: dbDashboard._id },
+        { $push: { cities: newCity } },
+        (error, result) => {
+            if (error) {
+                console.error(error);
+                return res.status(400).json(e);
+            } else {
+                console.log("City added successfully");
+            }
+        }
+    );
+
+    return res.status(200).json({});
+});
+router.post('/removecity', async (req, res) => {
+    let errors = {};
+    const dbUser = await Users.findOne({login: req.body.login});
+    const dbDashboard = await Dashboards.findOne({userID: dbUser._id})//id usera
+    const latitude = req.body.latitude; // Replace with the actual city ID to remove
+    const longitude = req.body.longitude; // Replace with the actual dashboard ID
+    const cityNameToRemove =req.body.cityName;
+    Dashboards.updateOne(
+        { _id: dbDashboard._id },
+        {
+            $pull: {
+                cities: {
+                    $elemMatch: {
+                        cityName:  cityNameToRemove,
+                        latitude: { $gte: parseFloat(latitude) - 0.2, $lte: parseFloat(latitude) + 0.2 },
+                        longitude: { $gte: parseFloat(longitude) - 0.2, $lte: parseFloat(longitude) + 0.2 },
+
+                    }
+                }
+            }
+        },
+        (error, result) => {
+            if (error) {
+                console.error(error);
+            } else {
+                console.log("City removed successfully");
+            }
+        }
+    );
+
+
+    return res.status(200).json({});
+});
+
+
 module.exports = router;
 
 
