@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="бд оновлена">
+    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="додала трохи логіки, псевдокод">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/model/Dashboard.schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/model/Dashboard.schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/routes/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +105,7 @@
       <workItem from="1683026978322" duration="1342000" />
       <workItem from="1683102871114" duration="56301000" />
       <workItem from="1683838376092" duration="208000" />
-      <workItem from="1684866806887" duration="7032000" />
+      <workItem from="1684866806887" duration="9157000" />
     </task>
     <task id="LOCAL-00001" summary="hourly forecast with color">
       <created>1683226352735</created>
@@ -137,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683838452198</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="додала трохи логіки, псевдокод">
+      <created>1684961902337</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684961902337</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +165,7 @@
     <MESSAGE value="Спілкуються!" />
     <MESSAGE value="шось" />
     <MESSAGE value="бд оновлена" />
-    <option name="LAST_COMMIT_MESSAGE" value="бд оновлена" />
+    <MESSAGE value="додала трохи логіки, псевдокод" />
+    <option name="LAST_COMMIT_MESSAGE" value="додала трохи логіки, псевдокод" />
   </component>
 </project>
