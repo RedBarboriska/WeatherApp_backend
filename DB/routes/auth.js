@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET || 'some other secret as default';
 const passport = require('passport');
 
-router.post('/signup', async (req, res) => {
+router.post('/sign-up', async (req, res) => {
     let errors = {};
     const user = await Users.findOne({login: req.body.login});
     //const newUser = new Users({...req.body});
@@ -25,10 +25,10 @@ router.post('/signup', async (req, res) => {
         return res.status(400).json(e);
     }
 
-    return res.status(200).json({});
+    return res.status(200).json({ message: 'Реєстрація пройшла успішно' });
 });
 
-router.post('/login', async (req, res) => {
+router.post('/sign-in', async (req, res) => {
     const errors = {};
     const login = req.body.login
     const password = req.body.password;
@@ -89,6 +89,9 @@ router.post('/addcity', async (req, res) => {
     const dbDashboard = await Dashboards.findOne({userID: dbUser._id})//id usera
     const newCity = {
         cityName:  req.body.cityName,
+        cityRegion: req.body.cityRegion,
+        cityCountry: req.body.cityCountry,
+
         latitude: req.body.latitude,
         longitude: req.body.longitude,
     };
@@ -98,7 +101,7 @@ router.post('/addcity', async (req, res) => {
         (error, result) => {
             if (error) {
                 console.error(error);
-                return res.status(400).json(e);
+                return res.status(400).json({error});
             } else {
                 console.log("City added successfully");
             }
@@ -111,19 +114,20 @@ router.post('/removecity', async (req, res) => {
     let errors = {};
     const dbUser = await Users.findOne({login: req.body.login});
     const dbDashboard = await Dashboards.findOne({userID: dbUser._id})//id usera
-    const latitude = req.body.latitude; // Replace with the actual city ID to remove
-    const longitude = req.body.longitude; // Replace with the actual dashboard ID
-    const cityNameToRemove =req.body.cityName;
+    //const latitude = req.body.latitude; // Replace with the actual city ID to remove
+    //const longitude = req.body.longitude; // Replace with the actual dashboard ID
+    //const cityNameToRemove =req.body.cityName;
     Dashboards.updateOne(
         { _id: dbDashboard._id },
         {
             $pull: {
                 cities: {
                     $elemMatch: {
-                        cityName:  cityNameToRemove,
-                        latitude: { $gte: parseFloat(latitude) - 0.2, $lte: parseFloat(latitude) + 0.2 },
-                        longitude: { $gte: parseFloat(longitude) - 0.2, $lte: parseFloat(longitude) + 0.2 },
-
+                        cityName:  req.body.cityName,
+                        cityRegion: req.body.cityRegion,
+                        cityCountry: req.body.cityCountry
+                        //latitude: { $gte: parseFloat(latitude) - 0.2, $lte: parseFloat(latitude) + 0.2 },
+                        //longitude: { $gte: parseFloat(longitude) - 0.2, $lte: parseFloat(longitude) + 0.2 },
                     }
                 }
             }
@@ -131,6 +135,7 @@ router.post('/removecity', async (req, res) => {
         (error, result) => {
             if (error) {
                 console.error(error);
+                return res.status(400).json({error})
             } else {
                 console.log("City removed successfully");
             }
