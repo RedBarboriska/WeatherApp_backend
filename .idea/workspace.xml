@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="хз">
+    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="поміняно принцип додавання видалення міст">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/model/Dashboard.schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/model/Dashboard.schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/routes/.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,33 +41,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.12.1&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.16.3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "18.12.1",
+    "javascript.nodejs.core.library.typings.version": "18.16.16",
+    "last_opened_file_path": "D:/KPI/diploma/program/weather_backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\KPI\diploma\program\weather_backend" />
       <recent name="D:\KPI\diploma\program\weather_backend\DB\model" />
       <recent name="D:\KPI\diploma\program\weather_backend\DB" />
-      <recent name="D:\KPI\diploma\program\weather_backend" />
       <recent name="D:\KPI\diploma\program\weather_backend\App" />
     </key>
   </component>
@@ -108,7 +114,9 @@
       <workItem from="1683102871114" duration="56301000" />
       <workItem from="1683838376092" duration="208000" />
       <workItem from="1684866806887" duration="11201000" />
-      <workItem from="1685110044254" duration="9238000" />
+      <workItem from="1685110044254" duration="11488000" />
+      <workItem from="1685367156822" duration="2325000" />
+      <workItem from="1685465528742" duration="24786000" />
     </task>
     <task id="LOCAL-00001" summary="hourly forecast with color">
       <created>1683226352735</created>
@@ -152,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685032997100</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="поміняно принцип додавання видалення міст">
+      <created>1685307843583</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685307843584</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +192,7 @@
     <MESSAGE value="бд оновлена" />
     <MESSAGE value="додала трохи логіки, псевдокод" />
     <MESSAGE value="хз" />
-    <option name="LAST_COMMIT_MESSAGE" value="хз" />
+    <MESSAGE value="поміняно принцип додавання видалення міст" />
+    <option name="LAST_COMMIT_MESSAGE" value="поміняно принцип додавання видалення міст" />
   </component>
 </project>

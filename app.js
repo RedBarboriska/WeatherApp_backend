@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 var createError = require('http-errors');
 const {connectDB} = require("./DB/ConnectDB");
@@ -9,6 +10,7 @@ const port = 5000
 var corsOptions = {
     origin: 'http://localhost:3000'
 };
+
 app.use(express.json())
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
@@ -52,6 +54,7 @@ app.post('/sign-up', (req, res) => {
 
 
 const startServer=async()=>{
+
     await connectDB()
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
