@@ -10,11 +10,6 @@ const passport = require('passport');
 
 const JWT_SECRET = process.env.JWT_SECRET
 
-//console.log(process.env)
-
-// webpack.config.js
-
-
 
 function authenticateToken(req, res, next) {
 
@@ -36,23 +31,32 @@ function authenticateToken(req, res, next) {
     })
 }
 
-/*
-app.post('/pushtoken', authenticateToken,async(req, res, data) => {
-*/
-
 router.post('/sign-up', async (req, res) => {
     let errors = {};
-    const user = await Users.findOne({login: req.body.login});
-    //const newUser = new Users({...req.body});
+
+    const user = await Users.findOne({ login: req.body.login });
+    if (user) {
+        return res.status(400).json({ message: "Уже існує користувач з даним логіном" });
+    }
 
     try {
-        const hashedPassword= await bcrypt.hash(req.body.password, 10)
-        const newUser = new Users(
-            {login: req.body.login,
-        password: hashedPassword,
-        name: req.body.name})
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const newUser = new Users({
+            login: req.body.login,
+            password: hashedPassword,
+            name: req.body.name
+        });
         await newUser.save();
-    } catch(e) {
+
+        const userID = newUser._id; // Get the ID of the newly created user
+
+        const dashboard = await Dashboards.create({
+            cities: [],
+            userID: userID
+        });
+
+        console.log(dashboard);
+    } catch (e) {
         errors = e;
         return res.status(400).json(e);
     }
@@ -71,12 +75,14 @@ router.post('/sign-in', async (req, res) => {
         errors.message = "Не знайдено користувача з даним логіном";
         return res.status(400).json({errors});
     }
+    const isMatch = await bcrypt.compare(password, user.password)
 
-    const isMatch = password === user.password;
+    console.log(` пароль ${isMatch} ${password}  ${user.password}`)
+    //const isMatch = password === user.password;
 
     // return 400 if password does not match
     if (!isMatch) {
-        errors.message = `Невірний пароль`;
+        errors.message = `Невірний пароль ${isMatch} ${password}  ${user.password}`;
         return res.status(400).json({errors});
     }
     //const token = jwt.sign({sub: data.username, role:data.role}, JWT_SECRET);
@@ -109,7 +115,6 @@ router.post('/me', authenticateToken, async function(req, res, next) {
     return res.status(200).json(dbUser);
 });
 
-
 router.post('/mydashboard', authenticateToken, async function(req, res, next) {
     const id = req.user.id;
     const dbDashboard = await Dashboards.findOne({userID: id})//id usera
@@ -119,14 +124,6 @@ router.post('/mydashboard', authenticateToken, async function(req, res, next) {
     } else{
          res.status(200).json({})};
 });
-
-/*router.get('/me', passport.authenticate('jwt', {session: false}), async function(req, res, next) {
-    const login = req.user.login;
-    const dbUser = await Users.findOne({ login });
-    res.status(200).json(dbUser);
-});*/
-
-
 
 router.post('/addcity', async (req, res) => {
     let errors = {};
@@ -155,6 +152,7 @@ router.post('/addcity', async (req, res) => {
 
     return res.status(200).json({});
 });
+
 router.post('/removecity', async (req, res) => {
     let errors = {};
     const dbUser = await Users.findOne({login: req.body.login});
