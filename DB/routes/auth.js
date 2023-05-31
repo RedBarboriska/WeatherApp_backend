@@ -106,7 +106,7 @@ router.post('/me', authenticateToken, async function(req, res, next) {
     console.log(login)
     const dbUser = await Users.findById(id)
     //const dbUser = await Users.findOne({ login });
-    res.status(200).json(dbUser);
+    return res.status(200).json(dbUser);
 });
 
 
@@ -114,7 +114,10 @@ router.post('/mydashboard', authenticateToken, async function(req, res, next) {
     const id = req.user.id;
     const dbDashboard = await Dashboards.findOne({userID: id})//id usera
     console.log(dbDashboard)
-    res.status(200).json(dbDashboard);
+    if(dbDashboard!==null){
+ res.status(200).json(dbDashboard);
+    } else{
+         res.status(200).json({})};
 });
 
 /*router.get('/me', passport.authenticate('jwt', {session: false}), async function(req, res, next) {
