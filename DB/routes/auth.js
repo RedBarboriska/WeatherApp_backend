@@ -118,76 +118,67 @@ router.post('/me', authenticateToken, async function(req, res, next) {
 router.post('/mydashboard', authenticateToken, async function(req, res, next) {
     const id = req.user.id;
     const dbDashboard = await Dashboards.findOne({userID: id})//id usera
+    console.log("dbDashboard")
     console.log(dbDashboard)
-    if(dbDashboard!==null){
+   // if(dbDashboard!==null){
  res.status(200).json(dbDashboard);
-    } else{
-         res.status(200).json({})};
+   // } else{
+         //res.status(200).json([])};
 });
 
-router.post('/addcity', async (req, res) => {
-    let errors = {};
-    const dbUser = await Users.findOne({login: req.body.login});
-    const dbDashboard = await Dashboards.findOne({userID: dbUser._id})//id usera
-    const newCity = {
-        cityName:  req.body.cityName,
-        cityRegion: req.body.cityRegion,
-        cityCountry: req.body.cityCountry,
+router.post('/addcity', authenticateToken, async (req, res, next) => {
+    try {
+        const id = req.user.id;
+        const dbDashboard = await Dashboards.findOne({ userID: id });
 
-        latitude: req.body.latitude,
-        longitude: req.body.longitude,
-    };
-    Dashboards.updateOne(
-        { _id: dbDashboard._id },
-        { $push: { cities: newCity } },
-        (error, result) => {
-            if (error) {
-                console.error(error);
-                return res.status(400).json({error});
-            } else {
-                console.log("City added successfully");
-            }
-        }
-    );
+        const newCity = {
+            cityName: req.body.cityName,
+            cityRegion: req.body.cityRegion,
+            cityCountry: req.body.cityCountry,
+            latitude: req.body.latitude,
+            longitude: req.body.longitude,
+        };
 
-    return res.status(200).json({});
+        await Dashboards.updateOne(
+            { _id: dbDashboard._id },
+            { $push: { cities: newCity } }
+        );
+
+        console.log("City added successfully");
+        return res.status(200).json({});
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ error });
+    }
 });
 
-router.post('/removecity', async (req, res) => {
-    let errors = {};
-    const dbUser = await Users.findOne({login: req.body.login});
-    const dbDashboard = await Dashboards.findOne({userID: dbUser._id})//id usera
-    //const latitude = req.body.latitude; // Replace with the actual city ID to remove
-    //const longitude = req.body.longitude; // Replace with the actual dashboard ID
-    //const cityNameToRemove =req.body.cityName;
-    Dashboards.updateOne(
-        { _id: dbDashboard._id },
-        {
-            $pull: {
-                cities: {
-                    $elemMatch: {
-                        cityName:  req.body.cityName,
+router.post('/removecity', authenticateToken, async (req, res) => {
+    try {
+        const id = req.user.id;
+        const dbDashboard = await Dashboards.findOne({ userID: id });
+
+        await Dashboards.updateOne(
+            {
+                _id: dbDashboard._id,
+                'cities.cityName': req.body.cityName,
+                'cities.cityRegion': req.body.cityRegion,
+                'cities.cityCountry': req.body.cityCountry
+            },
+            { $pull: { 'cities': {
+                        cityName: req.body.cityName,
                         cityRegion: req.body.cityRegion,
                         cityCountry: req.body.cityCountry
-                        //latitude: { $gte: parseFloat(latitude) - 0.2, $lte: parseFloat(latitude) + 0.2 },
-                        //longitude: { $gte: parseFloat(longitude) - 0.2, $lte: parseFloat(longitude) + 0.2 },
-                    }
-                }
-            }
-        },
-        (error, result) => {
-            if (error) {
-                console.error(error);
-                return res.status(400).json({error})
-            } else {
-                console.log("City removed successfully");
-            }
-        }
-    );
+                    }}}
+        );
 
-
-    return res.status(200).json({});
+        console.log("City removed successfully");
+        return res.status(200).json({});
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ error });
+    }
 });
+
 
 
 module.exports = router;

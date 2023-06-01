@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="дашборд при sign in">
+    <list default="true" id="11885748-e042-4b62-8a65-f51f5a0320e4" name="Changes" comment="sign up + bcrypt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/routes/auth.js" afterDir="false" />
     </list>
@@ -112,7 +112,7 @@
       <workItem from="1685110044254" duration="11488000" />
       <workItem from="1685367156822" duration="2325000" />
       <workItem from="1685465528742" duration="28433000" />
-      <workItem from="1685553217937" duration="2206000" />
+      <workItem from="1685553217937" duration="8905000" />
     </task>
     <task id="LOCAL-00001" summary="hourly forecast with color">
       <created>1683226352735</created>
@@ -177,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685550646550</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="sign up + bcrypt">
+      <created>1685555716661</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685555716661</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +212,7 @@
     <MESSAGE value="поміняно принцип додавання видалення міст" />
     <MESSAGE value="sign in" />
     <MESSAGE value="дашборд при sign in" />
-    <option name="LAST_COMMIT_MESSAGE" value="дашборд при sign in" />
+    <MESSAGE value="sign up + bcrypt" />
+    <option name="LAST_COMMIT_MESSAGE" value="sign up + bcrypt" />
   </component>
 </project>
