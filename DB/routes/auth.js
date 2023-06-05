@@ -95,11 +95,9 @@ router.post('/sign-in', async (req, res) => {
 
     let token = await jwt.sign(payload, process.env.JWT_SECRET, /*{expiresIn: 36000}*/);
 
-    //let token = await jwt.sign(payload, secret, {expiresIn: 36000});
-    // return 500 if token is incorrect
     if (!token) {
         return res.status(500)
-            .json({ error: "Error signing token",
+            .json({ error: "Помилка створення токену",
                  });
     }
 
@@ -112,7 +110,7 @@ router.post('/me', authenticateToken, async function(req, res, next) {
     console.log(login)
     const dbUser = await Users.findById(id)
     //const dbUser = await Users.findOne({ login });
-    return res.status(200).json(dbUser);
+    return res.status(200).json({name:dbUser.name});
 });
 
 router.post('/mydashboard', authenticateToken, async function(req, res, next) {
