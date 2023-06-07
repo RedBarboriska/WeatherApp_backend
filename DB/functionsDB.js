@@ -9,7 +9,7 @@ async function createNewUser(login, password, name) {
         password: password,
         name: name
     })
-    console.log(user)
+    //console.log(user)
 }
 
 async function createNewDashboard(arrayOfCities, userID) {
@@ -17,7 +17,7 @@ async function createNewDashboard(arrayOfCities, userID) {
         cities: listOfCities,
         userID: userID
     })
-    console.log(dashboard)
+    //console.log(dashboard)
 }
 
 let citiesArray = [{latitude: "56", longitude: "-12.76"}, {latitude: "-3.3456", longitude: "40"}]
@@ -26,7 +26,7 @@ let userID = "64522f2dd7a20587e36c9336"
 
 async function dashboardUpdate(userID, citiesArray) {
     await Dashboards.findOneAndUpdate({userID: userID}, {cities: citiesArray})
-    console.log(await Dashboards.findOne({userID: userID}))
+   // console.log(await Dashboards.findOne({userID: userID}))
 }
 
 async function test() {

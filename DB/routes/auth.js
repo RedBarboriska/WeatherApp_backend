@@ -21,7 +21,7 @@ function authenticateToken(req, res, next) {
     if (token == null) return res.sendStatus(401)
 
     jwt.verify(token, JWT_SECRET, (err, user) => {
-        console.log(user)
+       // console.log(user)
 
         if (err) return res.sendStatus(403)
 
@@ -55,7 +55,7 @@ router.post('/sign-up', async (req, res) => {
             userID: userID
         });
 
-        console.log(dashboard);
+       // console.log(dashboard);
     } catch (e) {
         errors = e;
         return res.status(400).json(e);
@@ -77,7 +77,7 @@ router.post('/sign-in', async (req, res) => {
     }
     const isMatch = await bcrypt.compare(password, user.password)
 
-    console.log(` пароль ${isMatch} ${password}  ${user.password}`)
+   // console.log(` пароль ${isMatch} ${password}  ${user.password}`)
     //const isMatch = password === user.password;
 
     // return 400 if password does not match
@@ -107,7 +107,7 @@ router.post('/sign-in', async (req, res) => {
 router.post('/me', authenticateToken, async function(req, res, next) {
     const login = req.user.login;
     const id = req.user.id;
-    console.log(login)
+   // console.log(login)
     const dbUser = await Users.findById(id)
     //const dbUser = await Users.findOne({ login });
     return res.status(200).json({name:dbUser.name});
@@ -116,8 +116,8 @@ router.post('/me', authenticateToken, async function(req, res, next) {
 router.post('/mydashboard', authenticateToken, async function(req, res, next) {
     const id = req.user.id;
     const dbDashboard = await Dashboards.findOne({userID: id})//id usera
-    console.log("dbDashboard")
-    console.log(dbDashboard)
+   // console.log("dbDashboard")
+   // console.log(dbDashboard)
    // if(dbDashboard!==null){
  res.status(200).json(dbDashboard);
    // } else{
@@ -142,11 +142,11 @@ router.post('/addcity', authenticateToken, async (req, res, next) => {
             { $push: { cities: newCity } }
         );
 
-        console.log("City added successfully");
+       // console.log("Місто успішно додано");
         return res.status(200).json({});
     } catch (error) {
-        console.error(error);
-        return res.status(400).json({ error });
+       // console.error(error);
+        return res.status(400).json({});
     }
 });
 
@@ -169,10 +169,10 @@ router.post('/removecity', authenticateToken, async (req, res) => {
                     }}}
         );
 
-        console.log("City removed successfully");
+       // console.log("City removed successfully");
         return res.status(200).json({});
     } catch (error) {
-        console.error(error);
+        //console.error(error);
         return res.status(400).json({ error });
     }
 });

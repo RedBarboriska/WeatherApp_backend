@@ -29,7 +29,7 @@ async function run() {
     //console.log(user)
     //console.log(dashboard)
     const user2 = await Users.findOne({login: "user1", password: "1111"})
-    console.log(user2)
+    //console.log(user2)
     user2.name = "Camilla"
     user2.updateOne()
 }
