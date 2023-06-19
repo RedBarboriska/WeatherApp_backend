@@ -9,19 +9,9 @@ const WEATHER_KEY = process.env.WEATHER_KEY
 router.post('/get-data', async function(req, res, next) {
 
     let date_time = new Date();
-
-// get current date
-// adjust 0 before single digit date
-// get current hours
     let hours = date_time.getHours();
-
-// get current minutes
     let minutes = date_time.getMinutes();
-
-// get current seconds
     let seconds = date_time.getSeconds();
-
-// prints date & time in YYYY-MM-DD HH:MM:SS format
     console.log(hours + ":" + minutes + ":" + seconds);
 
 
